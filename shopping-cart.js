@@ -18,7 +18,8 @@ complete_order_button.addEventListener('click',completeOrder)
 
 
 function clearCart(){
-  fetch(`http://127.0.0.1:8080/cart/clear?user_id=${localStorage.getItem("loggedInUserID")}`, {method: 'DELETE'})
+  fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${loggedInUserID}`,
+   {method: 'DELETE'});
   console.log("cleared cart")
 }
 
