@@ -25,8 +25,8 @@ fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${localStorage.getItem('logge
 
     div.style.width = "280px";
     div.style.height = "25px"; 
-    div.style.background = "red";
-    div.style.color = "yellow";
+    div.style.background = "grey";
+    // div.style.color = "yellow";
     removeButton.id=element.id;
 
     div.appendChild(a);
