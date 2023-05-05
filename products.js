@@ -1,4 +1,4 @@
-fetch(`http://127.0.0.1:8080/product-list`, {
+fetch('http://127.0.0.1:8080/product-list', {
   method: 'GET',
 }).then(res => res.json()).then(data => {
   console.log(data);
@@ -6,32 +6,28 @@ fetch(`http://127.0.0.1:8080/product-list`, {
 
     console.log(element);
 
-    var div = document.createElement("div");
-    
-    
+    const div = document.createElement("div");
+    div.classList.add("product");
 
-    const a = document.createElement("a");
-    a.innerHTML =  `${element.productName}  `
-    a.href = `product.html?id=${element.id}`
+    const productName = document.createElement("span");
+    productName.classList.add("product-name");
+    productName.textContent = element.productName;
 
-    const a1 = document.createElement("a");
-    a1.innerHTML = `price: ${element.price}`;
+    const price = document.createElement("span");
+    price.classList.add("product-price");
+    price.textContent = `Price: ${element.price}`;
 
-    const a2 = document.createElement("a");
-    a2.innerHTML = `stock: ${element.stock}`;
+    const stock = document.createElement("span");
+    stock.classList.add("product-stock");
+    stock.textContent = `Stock: ${element.stock}`;
 
     const addToCartButton = document.createElement("button");
-    addToCartButton.innerHTML = "add to cart"; 
+    addToCartButton.classList.add("add-to-cart-button");
+    addToCartButton.textContent = "Add to cart"; 
 
-    div.style.width = "350px";
-    div.style.height = "25px"; 
-    div.style.background = "grey";
-    // div.style.color = "red";
-    addToCartButton.id=element.id;
-
-    div.appendChild(a);
-    div.appendChild(a1);
-    div.appendChild(a2);
+    div.appendChild(productName);
+    div.appendChild(price);
+    div.appendChild(stock);
     div.appendChild(addToCartButton);
 
     addToCartButton.addEventListener("click", function() { 
@@ -39,10 +35,9 @@ fetch(`http://127.0.0.1:8080/product-list`, {
             method: 'POST'
         });
 
-        addToCartButton.innerHTML = "added";
-      //location. reload();
+        addToCartButton.textContent = "Added";
     });
-    
+
     document.body.appendChild(div);
   });
 });

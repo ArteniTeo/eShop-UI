@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <title></title>
+    <style>
+      .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #08abe1;
+      }
+
+      #produsDiv {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      #total-price {
+        margin: 20px auto;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      #cancel-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #bfbfbf;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #checkout-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1 style="text-align: center; margin-top: 50px;">Order Checkout</h1>
+    <div id="produsDiv"></div>
+    <div id="total-price"></div>
+    <button id="checkout-button">Checkout</button>
+    <button id="cancel-button">Cancel</button>
+    <script src="order-details.js"></script>
+  </body>
+</html>

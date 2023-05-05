@@ -1,26 +1,76 @@
 <!doctype html>
 <html lang="">
-  
+  <head>
+    <title>Shopping Cart</title>
+    <style>
+      .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid rgb(0, 0, 0);
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #08abe1;
+      }
 
-<head>
-  <title></title>
-  <style>
-    #produsDiv {
-      background-color: rgb(206, 205, 205);
-    }
+      #produsDiv {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      /* #cancel-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #bfbfbf;
+        border: none;
+        border-radius: 5px;
+      } */
+
+      #checkout-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #more-products-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: yellow;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #my-account-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: #bfbfbf;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+      }
     </style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-  <h1>shopping cart</h1>
-
-  <script src="shopping-cart.js"></script>
-
-  <a href="products.html">See more products.</a><br>
-  <a href="my-account.html">My account.</a>
-
-</body>
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1 style="text-align: center;">Shopping Cart</h1>
+    <button id="my-account-button" onclick="location.href='my-account.html'">My Account</button>
+    <div id="produsDiv"></div>
+    <div style="text-align: center;" id="total-price"></div>
+    <button id="checkout-button" onclick="location.href='order-details.html'">Checkout</button>
+    <!-- <button id="cancel-button">Cancel</button> -->
+    <button id="more-products-button" onclick="location.href='products.html'">See more products</button>
+    <script src="shopping-cart.js"></script>
+  </body>
 </html>

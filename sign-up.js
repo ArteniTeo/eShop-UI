@@ -24,13 +24,13 @@ function signIn() {
         
           console.log(stringBody);
         
-          fetch('http://127.0.0.1:8080/signup', 
-          {method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: stringBody
-          }).then(res => res.json()).then(data => {
+        fetch('http://127.0.0.1:8080/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: stringBody
+        }).then(res => res.json()).then(data => {
             if (data.id > 0) {
                 
                 localStorage.setItem("loggedInUserUsername", data.username);
