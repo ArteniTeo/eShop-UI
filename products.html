@@ -68,58 +68,7 @@
   <section id="produsDiv">
   </section>
 
-  <script>
-    fetch(`http://127.0.0.1:8080/product-list`, {
-      method: 'GET',
-    }).then(res => res.json()).then(data => {
-      console.log(data);
-      data.forEach(element => {
-
-        console.log(element);
-
-        var div = document.createElement("div");
-        div.classList.add("product");
-        
-        const productName = document.createElement("div");
-        productName.classList.add("product-name");
-        productName.innerHTML = element.productName;
-
-        const productDetails = document.createElement("div");
-        productDetails.classList.add("product-details");
-
-        const price = document.createElement("div");
-        price.innerHTML = `Price: ${element.price}`;
-
-        const stock = document.createElement("div");
-        stock.innerHTML = `Stock: ${element.stock}`;
-
-        const addToCartButton = document.createElement("button");
-        addToCartButton.innerHTML = "Add to cart"; 
-        addToCartButton.classList.add("button");
-        addToCartButton.id=element.id;
-
-        productDetails.appendChild(price);
-        productDetails.appendChild(stock);
-        productDetails.appendChild(addToCartButton);
-
-        addToCartButton.addEventListener("click", function() { 
-            fetch(`http://127.0.0.1:8080/shopping_cart_item?productId=${element.id}&customerId=${localStorage.getItem('loggedInUserID')}&qty=1`, {
-                method: 'POST'
-            });
-
-            addToCartButton.innerHTML = "Added";
-            addToCartButton.disabled = true;
-          //location. reload();
-        });
-
-        div.appendChild(productName);
-        div.appendChild(productDetails);
-        document.getElementById("produsDiv").appendChild(div);
-      });
-    }).catch(error => {
-    console.error('Error:', error);
-});
-</script>
-
+  <script src="products.js"></script>
 </body>
+
 </html> 

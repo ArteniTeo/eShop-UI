@@ -19,10 +19,10 @@ fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${localStorage.getItem('logge
 
     const a1 = document.createElement("a");
     a1.innerHTML = `price: ${element.price}`;
-    totalPrice += element.price;
 
     const a2 = document.createElement("a");
     a2.innerHTML = `qty: ${element.quantity}`;
+    totalPrice += element.price * element.quantity;
 
     const removeButton = document.createElement("button");
     removeButton.innerHTML = "remove"; 

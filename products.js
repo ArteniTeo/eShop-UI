@@ -1,43 +1,67 @@
-fetch('http://127.0.0.1:8080/product-list', {
-  method: 'GET',
-}).then(res => res.json()).then(data => {
-  console.log(data);
-  data.forEach(element => {
+fetch(`http://127.0.0.1:8080/product-list`, {
+      method: 'GET',
+    }).then(res => res.json()).then(data => {
+      console.log(data);
+      data.forEach(element => {
 
-    console.log(element);
+        console.log(element);
 
-    const div = document.createElement("div");
-    div.classList.add("product");
+        var div = document.createElement("div");
+        div.classList.add("product");
+        
+        const productName = document.createElement("div");
+        productName.classList.add("product-name");
+        productName.innerHTML = element.productName;
 
-    const productName = document.createElement("span");
-    productName.classList.add("product-name");
-    productName.textContent = element.productName;
+        const productDetails = document.createElement("div");
+        productDetails.classList.add("product-details");
 
-    const price = document.createElement("span");
-    price.classList.add("product-price");
-    price.textContent = `Price: ${element.price}`;
+        const price = document.createElement("div");
+        price.innerHTML = `Price: ${element.price}`;
 
-    const stock = document.createElement("span");
-    stock.classList.add("product-stock");
-    stock.textContent = `Stock: ${element.stock}`;
+        const stock = document.createElement("div");
+        stock.innerHTML = `Stock: ${element.stock}`;
 
-    const addToCartButton = document.createElement("button");
-    addToCartButton.classList.add("add-to-cart-button");
-    addToCartButton.textContent = "Add to cart"; 
+        const quantityLabel = document.createElement("label");
+        quantityLabel.innerHTML = "Quantity: ";
 
-    div.appendChild(productName);
-    div.appendChild(price);
-    div.appendChild(stock);
-    div.appendChild(addToCartButton);
+        const quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.min = 1;
+        quantityInput.max = element.stock;
+        quantityInput.value = 1;
 
-    addToCartButton.addEventListener("click", function() { 
-        fetch(`http://127.0.0.1:8080/shopping_cart_item?productId=${element.id}&customerId=${localStorage.getItem('loggedInUserID')}&qty=1`, {
+        const addToCartButton = document.createElement("button");
+        addToCartButton.innerHTML = "Add to cart"; 
+        addToCartButton.classList.add("button");
+        addToCartButton.id=element.id;
+
+        productDetails.appendChild(price);
+        productDetails.appendChild(stock);
+        productDetails.appendChild(quantityLabel);
+        productDetails.appendChild(quantityInput);
+        productDetails.appendChild(addToCartButton);
+        div.appendChild(productName);
+        div.appendChild(productDetails);
+
+        document.getElementById("produsDiv").appendChild(div);
+
+        addToCartButton.addEventListener("click", function() {
+          const quantity = quantityInput.value;
+          const productID = addToCartButton.id;
+          console.log(`Product ${productID} added to cart with quantity ${quantity}`);
+          fetch(`http://127.0.0.1:8080/shopping_cart_item?productId=${productID}&customerId=${localStorage.getItem('loggedInUserID')}&qty=${quantity}`, {
             method: 'POST'
+        }).then(response => {
+          if (response.ok) {
+            addToCartButton.innerHTML = "Added";
+            setTimeout(() => {
+              addToCartButton.innerHTML = "Add to cart";
+            }, 3000);
+          }
         });
-
-        addToCartButton.textContent = "Added";
-    });
-
-    document.body.appendChild(div);
+        });
+      });
+    }).catch(err => {
+    console.error(err);
   });
-});

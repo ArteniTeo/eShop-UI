@@ -1,16 +1,92 @@
+<!DOCTYPE html>
+<html>
 <head>
-    <title>welcome</title>
+  <title>Welcome</title>
+  <style>
+    /* Apply a layout with a header, main content, and footer */
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1em;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 1em;
+    }
+    /* Use a clear hierarchy with headings */
+h1, h2 {
+  text-align: center;
+}
+h1 {
+  font-size: 4em;
+  margin: 0;
+}
+h2 {
+  font-size: 2em;
+}
+
+/* Use whitespace to separate sections */
+main {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/* Use a consistent color scheme */
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 1em 2em;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* Use responsive design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  button {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
+}
+</style>
 </head>
-
 <body>
-
-    <h1 id="welcome-tag">WELCOME</h1>
-    
-
-    <a href = "products.html"><button>PRODUCTS</button></a><br><br>
-    <a href = "shopping-cart.html"><button>SHOPPING CART</button></a><br><br>
-    <a href = "log-in.html"><button>LOG OUT</button></a><br><br>
-
-    <script src="my-account.js"></script>
-
+  <header>
+    <h1>Welcome</h1>
+  </header>
+  <main>
+    <h2>What would you like to do?</h2>
+    <a href="products.html">
+      <button>View Products</button>
+    </a>
+    <a href="shopping-cart.html">
+      <button>View Shopping Cart</button>
+    </a>
+    <a href="log-in.html">
+      <button>Log Out</button>
+    </a>
+  </main>
+  <footer>
+    <p>&copy; 2023 My Website</p>
+  </footer>
 </body>
+</html>
