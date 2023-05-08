@@ -17,7 +17,7 @@ fetch(`http://127.0.0.1:8080/order_details?customerId=${localStorage.getItem('lo
     const orderAddress = row.insertCell();
     orderAddress.innerText = order.deliveryAddress;
     const orderLink = document.createElement('a');
-    orderLink.innerText = 'View Details';
+    orderLink.innerText = 'Vezi produse';
     orderLink.href = `order_detail.html?id=${order.id}`;
     const orderLinkCell = row.insertCell();
     orderLinkCell.appendChild(orderLink);
