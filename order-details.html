@@ -1,38 +1,31 @@
 <!doctype html>
 <html lang="">
   <head>
-    <title></title>
+    <title>Detalii comanda</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <style>
-      .product {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        border-bottom: 1px solid rgb(0, 0, 0);
-        max-width: 400px;
-        margin: 0 auto;
-        background-color: #08abe1;
-      }
-
-      #produsDiv {
+      table {
         max-width: 800px;
-        margin: 0 auto;
+        margin: 50px auto 0;
         padding: 10px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-collapse: collapse;
       }
 
-      #total-price {
-        margin: 20px auto;
-        max-width: 400px;
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid black;
         text-align: center;
       }
 
-      #cancel-button {
-        display: block;
-        margin: 10px auto;
-        padding: 10px 20px;
-        background-color: #bfbfbf;
-        border: none;
-        border-radius: 5px;
+      th {
+        background-color: #4caf50;
+        color: #fff;
       }
 
       #checkout-button {
@@ -44,18 +37,64 @@
         border: none;
         border-radius: 5px;
       }
+
+      #cancel-button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: rgb(255, 0, 0);
+        color: #000;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #my-account-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        background-color: #bfbfbf;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #delivery-address,
+      #total-price,
+      #cancel-button {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      label[for="delivery-address"] {
+        display: block;
+        margin: 20px auto 10px;
+        text-align: center;
+      }
     </style>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <h1 style="text-align: center; margin-top: 50px;">Order Checkout</h1>
-    <label for="delivery-address">Delivery Address:</label>
-    <input type="text" id="delivery-address" name="delivery-address" required>
-    <div id="produsDiv"></div>
+    <h1 style="text-align: center; margin-top: 50px;">Detalii ale comenzi</h1>
+    <label for="delivery-address">Delivery address:</label><br>
+    <input type="text" id="delivery-address" name="delivery-address" required />
+    <table id="produsTable">
+      <thead>
+        <tr>
+          <th>Nume produs</th>
+          <th>Pret</th>
+          <th>Cantitate</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
     <div id="total-price"></div>
-    <button id="checkout-button">Checkout</button>
-    <button id="cancel-button">Cancel.</button>
+    <button id="checkout-button">Cumpara</button>
+    <button id="cancel-button">M-am razgandit</button>
     <script src="order-details.js"></script>
+
   </body>
 </html>

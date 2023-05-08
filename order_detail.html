@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      color: green;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+
+    th {
+      background-color: green;
+      color: white;
+    }
+
+    #orderItems {
+      color: green;
+      font-weight: bold;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Order Details</h1>
+
+  <a class="button" href="completed-orders.html">Back to completed orders</a>
+
+  <p>Order ID: <span id="orderId"></span></p>
+  <p>Order Date: <span id="orderDate"></span></p>
+  <p>Total Price: <span id="orderTotal"></span></p>
+  <p>Delivery Address: <span id="orderAddress"></span></p>
+
+  <h2>Order Items</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody id="orderItems"></tbody>
+  </table>
+
+  <script src="order-detail.js"></script>
+</body>
+</html>

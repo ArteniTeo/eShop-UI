@@ -17,13 +17,13 @@ fetch(`http://127.0.0.1:8080/product-list`, {
         productDetails.classList.add("product-details");
 
         const price = document.createElement("div");
-        price.innerHTML = `Price: ${element.price}`;
+        price.innerHTML = `Pret : ${element.price}`;
 
         const stock = document.createElement("div");
-        stock.innerHTML = `Stock: ${element.stock}`;
+        stock.innerHTML = `Stoc : ${element.stock}`;
 
         const quantityLabel = document.createElement("label");
-        quantityLabel.innerHTML = "Quantity: ";
+        quantityLabel.innerHTML = "Cantitate : ";
 
         const quantityInput = document.createElement("input");
         quantityInput.type = "number";
@@ -32,7 +32,7 @@ fetch(`http://127.0.0.1:8080/product-list`, {
         quantityInput.value = 1;
 
         const addToCartButton = document.createElement("button");
-        addToCartButton.innerHTML = "Add to cart"; 
+        addToCartButton.innerHTML = "Pune in cos."; 
         addToCartButton.classList.add("button");
         addToCartButton.id=element.id;
 
@@ -54,9 +54,9 @@ fetch(`http://127.0.0.1:8080/product-list`, {
             method: 'POST'
         }).then(response => {
           if (response.ok) {
-            addToCartButton.innerHTML = "Added";
+            addToCartButton.innerHTML = "Adaugat !";
             setTimeout(() => {
-              addToCartButton.innerHTML = "Add to cart";
+              addToCartButton.innerHTML = "Pune in cos.";
             }, 3000);
           }
         });

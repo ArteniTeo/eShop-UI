@@ -20,7 +20,7 @@ form.addEventListener('submit', (event) => {
   .then(data => {
     console.log('Payment details added successfully:', data);
     // Redirect to the final order view
-    window.location.href = 'final-order-view.html';
+    window.location.href = 'order-details.html';
   })
   .catch(error => {
     console.error('Error adding payment details:', error);

@@ -3,72 +3,101 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Available Products</title>
+  <title>Produse</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <style>
-    #produsDiv {
-      background-color: rgb(206, 205, 205);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    body {
+      background-image: url(pictures/carti.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
     }
+
     .product {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      width: 100%;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid rgb(0, 0, 0);
+      max-width: 400px;
+      margin: 0 auto;
+      color: black;
+      background-color: rgba(255,255,255,0.7);
+    }
+
+    #produsDiv {
       max-width: 800px;
-      margin-bottom: 20px;
-      padding: 20px;
-      border: 1px solid #000000;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: rgba(255,255,255,0.7);
     }
-    .product-name {
-      font-size: 24px;
-      font-weight: bold;
+
+    .my-image {
+      border: 1px solid black;
+      max-width: 50%;
+      height: auto;
     }
-    .product-details {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 18px;
-    }
-    .button {
-      background-color: #4CAF50;
+
+    #checkout-button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
       border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
+      border-radius: 5px;
     }
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+
+    #more-products-button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      background-color: yellow;
+      color: #000;
+      border: none;
+      border-radius: 5px;
     }
+
+    #my-account-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #bfbfbf;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+    }
+
+    /* Additional style to move the image to the left */
+    #product-list-wrapper {
+      width: 30%;
+      margin: 0 auto;
+    }
+
   </style>
+
 </head>
 <body>
   <header>
-    <h1>Available products:</h1>
+    <h1 style="text-align: center;">Produse in stoc :</h1>
   </header>
 
-  <nav>
-    <button class="button" onclick="window.location.href='shopping-cart.html'">See my shopping cart</button>
-    <button class="button" onclick="window.location.href='my-account.html'">My account</button>
-  </nav>
+  <div id="product-list-wrapper">
+    <nav style="text-align: center;">
+      <button class="button" onclick="window.location.href='shopping-cart.html'">Cosul de cumparaturi</button>
+      <button class="button" onclick="window.location.href='my-account.html'">Contul meu</button>
+    </nav>
 
-  <section id="produsDiv">
-  </section>
+    <section id="produsDiv">
+    </section>
 
-  <script src="products.js"></script>
+    <script src="products.js"></script>
+  </div>
+
 </body>
-
-</html> 
+</html>

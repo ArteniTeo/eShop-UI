@@ -5,37 +5,41 @@ fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${localStorage.getItem('logge
 .then(data => {
   console.log(data);
   let totalPrice = 0;
-  const produsDiv = document.getElementById('produsDiv');
+  const produsTable = document.getElementById('produsTable');
   data.forEach(element => {
 
     console.log(element);
 
-    var div = document.createElement("div");
-    div.classList.add("product");
+    const tr = document.createElement("tr");
 
+    const td1 = document.createElement("td");
     const a = document.createElement("a");
-    a.innerHTML =  `${element.productName}  `
-    a.href = `product.html?id=${element.productId}`
+    a.innerHTML =  `${element.productName}`;
+    a.href = `product.html?id=${element.productId}`;
+    td1.appendChild(a);
 
-    const a1 = document.createElement("a");
-    a1.innerHTML = `price: ${element.price}`;
+    const td2 = document.createElement("td");
+    td2.innerHTML = `Pret : ${element.price}`;
 
-    const a2 = document.createElement("a");
-    a2.innerHTML = `qty: ${element.quantity}`;
+    const td3 = document.createElement("td");
+    td3.innerHTML = `Cantitate : ${element.quantity}`;
     totalPrice += element.price * element.quantity;
 
+    const td4 = document.createElement("td");
     const removeButton = document.createElement("button");
-    removeButton.innerHTML = "remove"; 
+    removeButton.innerHTML = "Sterge"; 
 
     removeButton.classList.add("remove-button");
     removeButton.id=element.id;
 
-    div.appendChild(a);
-    div.appendChild(a1);
-    div.appendChild(a2);
-    div.appendChild(removeButton);
+    td4.appendChild(removeButton);
 
-    produsDiv.appendChild(div);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+
+    produsTable.appendChild(tr);
 
     removeButton.addEventListener("click", function() { 
       fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${removeButton.id}`, {
@@ -46,5 +50,5 @@ fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${localStorage.getItem('logge
     
   });
   const totalPriceContainer = document.getElementById('total-price');
-  totalPriceContainer.innerHTML = "Total price : " + totalPrice;
+  totalPriceContainer.innerHTML = "Pret total : " + totalPrice;
 });

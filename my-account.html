@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome</title>
+  <title>Bine ai venit</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
   <style>
-    /* Apply a layout with a header, main content, and footer */
     body {
       display: flex;
       flex-direction: column;
       height: 100vh;
     }
     header {
-      background-color: #333;
-      color: white;
       padding: 1em;
     }
     main {
@@ -22,71 +24,72 @@
       align-items: center;
     }
     footer {
-      background-color: #333;
-      color: white;
       padding: 1em;
     }
-    /* Use a clear hierarchy with headings */
-h1, h2 {
-  text-align: center;
-}
-h1 {
-  font-size: 4em;
-  margin: 0;
-}
-h2 {
-  font-size: 2em;
-}
-
-/* Use whitespace to separate sections */
-main {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-/* Use a consistent color scheme */
-button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 1em 2em;
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-
-/* Use responsive design */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2em;
-  }
-  h2 {
-    font-size: 1.5em;
-  }
-  button {
-    font-size: 1em;
-    padding: 0.5em 1em;
-  }
-}
+    h1, h2 {
+      text-align: center;
+    }
+    h1 {
+      font-size: 4em;
+      margin: 0;
+    }
+    h2 {
+      font-size: 2em;
+    }
+    
+    main {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+    
+    button {
+      color: black;
+      padding: 1em 2em;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      padding: 10px 20px;
+      background-color: #bfbfbf;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+    }
+    
+    /* Use responsive design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      button {
+        font-size: 1em;
+        padding: 0.5em 1em;
+      }
+    }
 </style>
 </head>
 <body>
   <header>
-    <h1>Welcome</h1>
+    <h1>Bine ai venit !</h1>
   </header>
   <main>
-    <h2>What would you like to do?</h2>
+    <h2>Ce ai dori sa faci ?</h2>
     <a href="products.html">
-      <button>View Products</button>
+      <button>Vezi Produse</button>
     </a>
     <a href="shopping-cart.html">
-      <button>View Shopping Cart</button>
+      <button>Cos de cumparaturi</button>
+    </a>
+    <a href="completed-orders.html">
+      <button>Comenzi completate</button>
     </a>
     <a href="log-in.html">
-      <button>Log Out</button>
+      <button>Deconectare</button>
     </a>
   </main>
   <footer>
-    <p>&copy; 2023 My Website</p>
+    <p>&copy; 2023 Atestat</p>
   </footer>
 </body>
 </html>

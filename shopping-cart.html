@@ -1,34 +1,50 @@
 <!doctype html>
 <html lang="">
   <head>
-    <title>Shopping Cart</title>
+    <title>Cos</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <style>
-      .product {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+      table {
+        max-width: 800px;
+        margin: 50px auto 0;
         padding: 10px;
-        border-bottom: 1px solid rgb(0, 0, 0);
-        max-width: 400px;
-        margin: 0 auto;
-        background-color: #08abe1;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-collapse: collapse;
       }
 
-      #produsDiv {
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid black;
+        text-align: center;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: #fff;
+      }
+
+      #produsTable {
         max-width: 800px;
         margin: 0 auto;
         padding: 10px;
       }
-
-      /* #cancel-button {
-        display: block;
-        margin: 10px auto;
-        padding: 10px 20px;
-        background-color: #bfbfbf;
-        border: none;
-        border-radius: 5px;
-      } */
-
+    
+      #produsTable td {
+        padding: 10px;
+        border-bottom: 1px solid rgb(0, 0, 0);
+      }
+    
+      #produsTable th {
+        padding: 10px;
+        border-bottom: 2px solid rgb(0, 0, 0);
+      }
+    
       #checkout-button {
         display: block;
         margin: 10px auto;
@@ -38,7 +54,7 @@
         border: none;
         border-radius: 5px;
       }
-
+    
       #more-products-button {
         display: block;
         margin: 10px auto;
@@ -48,7 +64,7 @@
         border: none;
         border-radius: 5px;
       }
-
+    
       #my-account-button {
         position: absolute;
         top: 10px;
@@ -62,15 +78,24 @@
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+    </head>
   <body>
-    <h1 style="text-align: center;">Shopping Cart</h1>
-    <button id="my-account-button" onclick="location.href='my-account.html'">My Account</button>
-    <div id="produsDiv"></div>
+    <h1 style="text-align: center;">Cos de cumparaturi</h1>
+    <button id="my-account-button" onclick="location.href='my-account.html'">Contul meu</button>
+    <table id="produsTable">
+      <thead>
+        <tr>
+          <th>Produs</th>
+          <th>Pret</th>
+          <th>Cantitate</th>
+          <th>Sterge</th>
+        </tr>
+      </thead>
+      <tbody id="produsBody"></tbody>
+    </table>
     <div style="text-align: center;" id="total-price"></div>
-    <button id="checkout-button" onclick="location.href='order-details.html'">Checkout</button>
-    <!-- <button id="cancel-button">Cancel</button> -->
-    <button id="more-products-button" onclick="location.href='products.html'">See more products</button>
+    <button id="checkout-button" onclick="location.href='order-details.html'">Cumpara</button>
+    <button id="more-products-button" onclick="location.href='products.html'">Vezi mai multe produse</button>
     <script src="shopping-cart.js"></script>
   </body>
 </html>

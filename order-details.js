@@ -6,34 +6,25 @@ fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${localStorage.getItem('logge
     console.log(data);
     let totalPrice = 0;
 
-    const produsDiv = document.getElementById('produsDiv');
+    const produsTable = document.getElementById('produsTable').getElementsByTagName('tbody')[0];
 
     data.forEach((product) => {
-      const productDiv = document.createElement('div');
-      productDiv.classList.add('product');
-
-      const productName = document.createElement('a');
-      productName.innerHTML = product.productName;
-      productName.href = `product.html?id=${product.productId}`;
-
-      const price = document.createElement('a');
-      price.innerHTML = `Price: ${product.price}`;
-
-      const quantity = document.createElement('a');
-      quantity.innerHTML = `Qty: ${product.quantity}`;
-
-      productDiv.appendChild(productName);
-      productDiv.appendChild(price);
-      productDiv.appendChild(quantity);
+      const productRow = produsTable.insertRow();
+      const productNameCell = productRow.insertCell(0);
+      productNameCell.innerHTML = product.productName;
       
-      produsDiv.appendChild(productDiv);
-      
-      totalPrice += product.price;
+      const priceCell = productRow.insertCell(1);
+      priceCell.innerHTML = product.price;
+    
+      const quantityCell = productRow.insertCell(2);
+      quantityCell.innerHTML = product.quantity;
+    
+      totalPrice += product.price * product.quantity;
     });
-
+    
     const totalPriceContainer = document.getElementById('total-price');
-    totalPriceContainer.innerHTML = 'Total price : ' + totalPrice;
-
+    totalPriceContainer.innerHTML = 'Pret total : ' + totalPrice;
+    
     const checkoutButton = document.getElementById('checkout-button');
     checkoutButton.addEventListener('click', function () {
       fetch('http://127.0.0.1:8080/payment_details?customerId=' + localStorage.getItem('loggedInUserID'))
@@ -43,14 +34,24 @@ fetch(`http://127.0.0.1:8080/shopping_cart_item?id=${localStorage.getItem('logge
             window.location.href = 'payment-details.html';
           } else {
             console.log(data);
+
+            const currentDate = new Date().toISOString();
+
+            const deliveryAddressInput = document.getElementById("delivery-address");
+            const deliveryAddressValue = deliveryAddressInput.value;
+
+            fetch(`http://127.0.0.1:8080/finalise_order?customerId=${localStorage.getItem('loggedInUserID')}&totalPrice=${totalPrice}&paymentId=${data.id}&deliveryAddress=${deliveryAddressValue}&date=${currentDate}`, {
+              method: 'POST',
+            });
+
             window.location.href = 'final-order-view.html';
           }
         })
         .catch((error) => console.error(error));
     });
-
+    
     const cancelButton = document.getElementById('cancel-button');
     cancelButton.addEventListener('click', function () {
       window.location.href = 'shopping-cart.html';
     });
-  });
+});

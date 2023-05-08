@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
+    <!-- <style>
         /* Add styles for the page title */
         h1 {
             text-align: center;
@@ -91,7 +91,63 @@
         a:hover {
             color: #1e90ff;
         }
+    </style> -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+        .input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .input p {
+            margin-right: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .input input[type=text],input[type=password] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #fff;
+            width: 200px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #log_in_btn {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #error_display_sign_up {
+            text-align: center;
+            margin-top: 20px;
+            color: red;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
     </style>
+
 </head>
 
 <body>

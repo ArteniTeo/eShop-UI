@@ -1,43 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-    <title>sign up</title>
-    <h1>SIGN UP</h1>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+        .input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .input p {
+            margin-right: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .input input[type=text] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #fff;
+            width: 200px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #sign_up_btn {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #error_display_sign_up {
+            text-align: center;
+            margin-top: 20px;
+            color: red;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Sign Up</h1>
 
     <div class="input">
         <div id="input">
-            <p>enter username:</p>
+            <p>Username:</p>
             <input type="text" id="username_sign_up" name="username_sign_up">
-            <br>
-            <p>enter password:</p>
+            <p>Password:</p>
             <input type="text" id="password_sign_up" name="password_sign_up">
-            <br>
-            <p>enter first name:</p>
+            <p>First Name:</p>
             <input type="text" id="first_name_sign_up" name="first_name_sign_up">
-            <br>
-            <p>enter last name:</p>
-            <input type="text" id="last_name_sign_up" name="last_name_sign_up"><br><br>
+            <p>Last Name:</p>
+            <input type="text" id="last_name_sign_up" name="last_name_sign_up">
         </div>
     </div>
 
     <div class="buttons">
         <div id="buttons">
-            <button id = sign_up_btn>SIGN UP</button><br>
+            <button id="sign_up_btn">Sign Up</button>
         </div>
     </div>
     
-    <div id="error_display_sign_up" class="error_display_sign_up">
-        <p></p>
-    </div>
+    <div id="error_display_sign_up"></div>
 
-    <a href = "http://127.0.0.1:5500/log-in.html">Already have an account? Log in !</a>
+    <a href="http://127.0.0.1:5500/log-in.html">Already have an account? Log in!</a>
 
     <script src="sign-up.js"></script>
-
-
-
 </body>
+</html>
